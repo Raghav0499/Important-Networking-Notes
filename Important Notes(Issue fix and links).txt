@@ -1,0 +1,32 @@
+* Not able to Ping VM's in Azure (One server is pinging but other is not)
+
+Sol:- 1.Check DNS settings on Ethernet
+      2. Run this command in powershell of the server which is not pinging - (New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4)
+
+
+*IMPORTANT LINK FOR PROVISIONING ACTIVE DIRECTORY ON AZURE VM's
+
+https://tkolber.medium.com/provisioning-active-directory-environment-on-azure-vms-using-powershell-eb9480f495e6
+
+
+
+Exchange VM's DC:
+Root domain : raghavj.tk
+password : Raghav@penthara
+
+CDX Tenant:
+admin@M365x338010.onmicrosoft.com
+Pass:5ug714T55U
+product Id:
+
+
+Pass for AzureAdConnect : Penthara@321
+
+Get-ReceiveConnector "Outbound" | Add-ADPermission -User 'NT AUTHORITY\Anonymous Logon' -ExtendedRights MS-Exch-SMTP-Accept-Any-Recipient
+
+
+What is 127.0.0.1?
+
+Connect to Linux VM in azure using powershell:
+ssh -i C:\users\raghav.jain\downloads\linuxVM_key.pem admin_username@40.117.232.94 (ip)
+

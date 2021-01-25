@@ -1,0 +1,30 @@
+
+#CCONNECT TO LINUX VM IN AZURE USING POWERSHELL:
+ssh -i C:\users\raghav.jain\downloads\linuxVM_key.pem admin_username@40.117.232.94 (ip)
+
+#Not able to Ping VM's in Azure (One server is pinging but other is not)
+
+Sol:- 1.Check DNS settings on Ethernet
+      2. Run this command in powershell of the server which is not pinging - (New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4)
+
+
+#IMPORTANT LINK FOR PROVISIONING ACTIVE DIRECTORY ON AZURE VM's
+
+https://tkolber.medium.com/provisioning-active-directory-environment-on-azure-vms-using-powershell-eb9480f495e6
+
+
+
+
+#DNS Hosting:-
+*SPF record:
+v=spf1 mx a ip4:10.0.3.4 ip4:20.51.252.239 a:exchangevm.raghavj.tk include:3rdparty.com ~all
+
+*Dmarc record:
+v=DMARC1;p=none;sp=quarantine;pct=100;rua=mailto:exchange@raghavj.tk
+
+* A record
+machine name  ------------------->>  Public IP
+Domain name   ------------------->>  Public IP
+
+* MX(mail exchanger) record
+
