@@ -1,0 +1,4 @@
+When you create VM and want to enable hyper-v in that particular VM, one need to enable nested virtualization by running the below Powershell command on the
+physical host:
+
+Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
